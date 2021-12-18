@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { useRouter } from 'vue-router';
 
 export interface UserInfo {
   id: string;
@@ -6,8 +7,9 @@ export interface UserInfo {
   username: string;
 }
 
+export const USER_KEY = 'user';
 const useUserStore = defineStore({
-  id: 'user',
+  id: USER_KEY,
   state: () => ({
     token: '',
     id: '',
@@ -24,6 +26,13 @@ const useUserStore = defineStore({
       this.$patch({
         ...user,
       });
+    },
+    logout() {
+      this.$state = { token: '', id: '', username: '' };
+      localStorage.removeItem(USER_KEY);
+    },
+    isLogin() {
+      return this.token !== '';
     },
   },
 });

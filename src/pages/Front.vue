@@ -1,7 +1,12 @@
 <template>
-  <div class="flex flex-1 text-red-500">首页</div>
+  <HeaderVue></HeaderVue>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import { useRouter } from 'vue-router';
+  import HeaderVue from './Front/Header.vue';
+
+  const router = useRouter();
+</script>
 
 <style scoped></style>
