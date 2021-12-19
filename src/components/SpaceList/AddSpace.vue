@@ -35,7 +35,7 @@
     </div>
     <template #footer>
       <div class="btns space-x-4">
-        <el-button type="text" @click="onCancel">取消</el-button>
+        <el-button type="text" size="mini" @click="onCancel">取消</el-button>
         <el-button type="primary" size="mini" @click="onSubmit">确定</el-button>
       </div>
     </template>

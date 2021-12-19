@@ -1,14 +1,10 @@
 <template>
   <HeaderVue></HeaderVue>
-  <WikiListVue></WikiListVue>
+  <router-view></router-view>
 </template>
 
 <script setup lang="ts">
-  import { useRouter } from 'vue-router';
-  import HeaderVue from './Front/Header.vue';
-  import WikiListVue from './Front/WikiList.vue';
-
-  const router = useRouter();
+  import HeaderVue from '@/components/Front/Header.vue';
 </script>
 
 <style scoped></style>

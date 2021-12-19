@@ -1,5 +1,5 @@
 <template>
-  <div class="wiki-list">
+  <div class="space-list">
     <ToolBar></ToolBar>
     <div class="main">
       <PageAside></PageAside>
@@ -9,13 +9,13 @@
 </template>
 
 <script setup lang="ts">
-  import PageAside from './WikiList/PageAside.vue';
-  import Content from './WikiList/Content.vue';
-  import ToolBar from './WikiList/ToolBar.vue';
+  import PageAside from '@/components/SpaceList/PageAside.vue';
+  import Content from '@/components/SpaceList/Content.vue';
+  import ToolBar from '@/components/SpaceList/ToolBar.vue';
 </script>
 
 <style scoped lang="scss">
-  .wiki-list {
+  .space-list {
     @apply flex flex-col;
     height: calc(100vh - 3.5rem);
 
