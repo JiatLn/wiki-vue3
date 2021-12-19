@@ -13,7 +13,7 @@ requests.interceptors.request.use((config) => {
   config = config || {};
   const user = JSON.parse(localStorage.getItem('user') || '{}') as UserInfo;
   if (user.token) {
-    config.headers!['Authorization'] = user.token;
+    config.headers!['Authorization'] = `Bearer ${user.token}`;
   }
   return config;
 });

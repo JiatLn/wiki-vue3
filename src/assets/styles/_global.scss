@@ -7,15 +7,13 @@ body {
   @apply w-full h-full;
 }
 
-
 .el-message-box__content .el-icon {
-  position:absolute !important;
+  position: absolute !important;
 }
 
 .el-input__suffix-inner i {
   display: flex;
 }
-
 
 .el-form-item {
   align-items: center;
@@ -29,4 +27,13 @@ body {
 
 .el-button--small {
   font-size: 14px !important;
+}
+
+.el-dialog__header {
+  border-bottom: 1px solid #eee;
+}
+
+.el-dialog__footer {
+  border-top: 1px solid #eee;
+  padding-bottom: 10px !important;
 }
