@@ -19,6 +19,6 @@
 
 <style scoped lang="scss">
   .aside {
-    @apply w-64;
+    @apply sm:w-min lg:w-64;
   }
 </style>
