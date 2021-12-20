@@ -11,15 +11,28 @@ const routes: RouteRecordRaw[] = [
     children: [
       {
         name: 'SpaceList',
-        path: '/spaces',
+        path: '/space',
         component: () => import('@/pages/Front/SpaceList.vue'),
       },
       {
         name: 'SpaceDetail',
-        path: '/spaces/:id',
+        path: '/space/:sid',
         component: () => import('@/pages/Front/SpaceDetail.vue'),
+        children: [
+          {
+            name: 'Note',
+            path: '/space/:sid/note/:nid',
+            component: () => import('@/pages/Front/Note.vue'),
+          },
+        ],
       },
     ],
+  },
+  {
+    path: '/:pathMatch(.*)',
+    redirect: {
+      name: 'Front',
+    },
   },
 ];
 

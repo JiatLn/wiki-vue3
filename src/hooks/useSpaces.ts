@@ -9,7 +9,10 @@ const useSpaces = () => {
 
   const refresh = async () => {
     loading.value = true;
-    const { code, data } = await getSpaceListApi();
+    const { code, data } = await getSpaceListApi({
+      pageNum: 1,
+      pageSize: 10,
+    });
     loading.value = false;
     if (code === OK_CODE) {
       spaceList.value = data.rows;

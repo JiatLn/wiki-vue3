@@ -2,10 +2,14 @@
   <section class="content">
     <el-skeleton :loading="loading" class="p-4" :rows="6" animated :throttle="500">
       <el-table :data="spaceList" class="w-full">
-        <el-table-column prop="name" label="知识库" minWidth="200px"></el-table-column>
+        <el-table-column prop="name" label="知识库" minWidth="200px">
+          <template #default="{ row }">
+            <el-link @click="onClick(row.sid)">{{ row.name }}</el-link>
+          </template>
+        </el-table-column>
         <el-table-column
           prop="pageCount"
-          label="文章数"
+          label="笔记数"
           width="200px"
           align="center"
         ></el-table-column>
@@ -20,10 +24,11 @@
 </template>
 
 <script setup lang="ts">
-  import useSpaces from '@/hooks/useSpace';
+  import useSpaces from '@/hooks/useSpaces';
   import emitter from '@/lib/eventBus';
   import { formatDate } from '@/utils/date';
   import { onMounted } from 'vue';
+  import { useRouter } from 'vue-router';
 
   emitter.on('space:refresh', () => refresh());
 
@@ -32,6 +37,16 @@
   onMounted(() => {
     refresh();
   });
+
+  const router = useRouter();
+  const onClick = (sid: string) => {
+    router.push({
+      name: 'SpaceDetail',
+      params: {
+        sid: sid,
+      },
+    });
+  };
 </script>
 
 <style scoped lang="scss">

@@ -1,5 +1,5 @@
 <template>
-  <el-button type="primary" @click="dialogVisible = true">新建知识库</el-button>
+  <el-button type="primary" size="mini" @click="dialogVisible = true">新建知识库</el-button>
   <el-dialog v-model="dialogVisible" title="新建知识库" width="800px">
     <div class="dialog-body">
       <el-form
