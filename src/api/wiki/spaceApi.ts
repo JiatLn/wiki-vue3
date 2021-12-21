@@ -2,12 +2,13 @@ import { BasicResp, DataResp } from '@/api/types';
 import useHttp from '@/api/useHttp';
 
 export interface ISpaceData {
+  sid: string;
   name: string;
   code: string;
   description: string;
   creator: string;
   updateAt: string;
-  pageCount: number;
+  noteCount: number;
 }
 
 export const addSpaceApi = (data: Partial<ISpaceData>) => {
@@ -36,7 +37,6 @@ export const getSpaceListApi = (params: ISpacesParams) => {
 };
 
 export const getSpaceByIdApi = (sid: string) => {
-  console.log(sid);
   return useHttp<BasicResp<ISpaceData>>({
     url: '/space',
     method: 'GET',

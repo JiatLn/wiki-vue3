@@ -29,6 +29,11 @@ const routes: RouteRecordRaw[] = [
     ],
   },
   {
+    name: 'NoteNew',
+    path: '/space/:sid/note/new',
+    component: () => import('@/pages/Front/NoteNew.vue'),
+  },
+  {
     path: '/:pathMatch(.*)',
     redirect: {
       name: 'Front',

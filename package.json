@@ -10,6 +10,7 @@
     "@element-plus/icons": "0.0.11",
     "@element-plus/icons-vue": "^0.2.4",
     "@iconify/iconify": "^1.0.7",
+    "@kangc/v-md-editor": "^2.3.12",
     "@types/node": "^16.11.9",
     "axios": "^0.24.0",
     "dayjs": "^1.10.7",

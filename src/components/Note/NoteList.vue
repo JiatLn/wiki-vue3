@@ -2,29 +2,48 @@
   <ul class="note-list">
     <li
       class="note-item"
-      :class="{ active: i === activeIndex }"
-      v-for="i in 6"
+      :class="{ active: item.nid === activeIndex }"
+      v-for="(item, i) in noteList"
       :key="i"
-      @click="onClick(i)"
+      @click="onClick(item.nid)"
     >
-      这里是标题
+      {{ item.title }}
     </li>
   </ul>
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue';
+  import useNotes from '@/hooks/useNotes';
+  import { ref, watch, toRef } from 'vue';
   import { useRouter } from 'vue-router';
 
   const props = defineProps<{
     sid: string;
   }>();
 
-  const activeIndex = ref(1);
+  const activeIndex = ref('');
 
   const router = useRouter();
 
-  const onClick = (nid: number) => {
+  const { noteList } = useNotes(toRef(props, 'sid'));
+
+  watch(
+    () => noteList.value,
+    (val) => {
+      if (val.length) {
+        activeIndex.value = val[0].nid;
+        router.push({
+          name: 'Note',
+          params: {
+            sid: props.sid,
+            nid: val[0].nid,
+          },
+        });
+      }
+    }
+  );
+
+  const onClick = (nid: string) => {
     activeIndex.value = nid;
     router.push({
       name: 'Note',

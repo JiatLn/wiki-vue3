@@ -9,9 +9,12 @@ import '@purge-icons/generated';
 import '@/assets/styles/app.scss';
 import '@/assets/styles/_global.scss';
 import 'element-plus/dist/index.css';
+import VMdEditor from './lib/mdEditor';
 
 const app = createApp(App);
-app.use(router).use(createPinia());
+const pinia = createPinia();
+
+app.use(router).use(pinia).use(VMdEditor);
 
 app.config.globalProperties.$ELEMENT = {
   // options

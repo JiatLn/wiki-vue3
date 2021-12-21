@@ -56,5 +56,8 @@
         }
       }
     }
+    .space-detail__right {
+      @apply flex-1;
+    }
   }
 </style>

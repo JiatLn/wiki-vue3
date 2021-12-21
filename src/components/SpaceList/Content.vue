@@ -8,7 +8,7 @@
           </template>
         </el-table-column>
         <el-table-column
-          prop="pageCount"
+          prop="noteCount"
           label="笔记数"
           width="200px"
           align="center"
