@@ -19,4 +19,4 @@ declare global {
   const ElTable: typeof import('element-plus/es')['ElTable']
   const ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
 }
-export {}
+export { }

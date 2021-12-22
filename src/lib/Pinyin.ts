@@ -7243,9 +7243,9 @@ Pinyin._ucfirst = function (l1: string) {
   }
 };
 
-Pinyin._arraySearch = function (l1: string, l2: string) {
+Pinyin._arraySearch = function (l1: string) {
   for (var name in this._pinyin) {
-    if (this._pinyin[name].indexOf(l1) != -1) {
+    if (this._pinyin[name].indexOf(l1) !== -1) {
       return this._ucfirst(name);
       break;
     }
