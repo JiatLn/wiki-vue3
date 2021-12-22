@@ -48,3 +48,13 @@ export const getNoteByIdApi = (nid: string) => {
     },
   });
 };
+
+export const delNoteByIdApi = (nid: string) => {
+  return useHttp<BasicResp<null>>({
+    url: '/note',
+    method: 'DELETE',
+    params: {
+      nid: nid,
+    },
+  });
+};

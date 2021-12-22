@@ -7,12 +7,19 @@
         </el-icon>
         <el-icon><ArrowRight class="text-gray-400" /></el-icon>
         <span class="text-gray-500">{{ spaceDetail?.name }}</span>
+        <el-tooltip content="新建笔记" placement="left">
+          <div class="new-btn" @click="onNew">
+            <el-icon>
+              <Plus></Plus>
+            </el-icon>
+          </div>
+        </el-tooltip>
       </div>
-      <el-tabs type="card" @tab-click="handleClick">
-        <el-tab-pane label="笔记">
+      <el-tabs type="card">
+        <el-tab-pane :label="`笔记`">
           <NoteList :sid="sid"></NoteList>
         </el-tab-pane>
-        <el-tab-pane label="草稿箱"></el-tab-pane>
+        <el-tab-pane label="草稿箱 (0)"></el-tab-pane>
       </el-tabs>
     </div>
     <div class="space-detail__right">
@@ -27,6 +34,7 @@
   import { useRoute, useRouter } from 'vue-router';
   import { Notebook, ArrowRight } from '@element-plus/icons-vue';
   import NoteList from '@/components/Note/NoteList.vue';
+  import { Plus } from '@element-plus/icons-vue';
 
   const router = useRouter();
   const route = useRoute();
@@ -39,7 +47,14 @@
     sid.value = route.params.sid as string;
   });
 
-  const handleClick = () => {};
+  const onNew = () => {
+    router.push({
+      name: 'NoteNew',
+      params: {
+        sid: route.params.sid,
+      },
+    });
+  };
 </script>
 
 <style scoped lang="scss">
@@ -53,10 +68,13 @@
         margin-bottom: 0;
       }
       .left-top {
-        @apply flex items-center h-12 px-2 space-x-2;
+        @apply flex items-center h-12 px-2 space-x-2 relative;
         .home-btn {
           @apply cursor-pointer  text-red-400;
           font-size: 20px;
+        }
+        .new-btn {
+          @apply float-right absolute right-2 bg-red-400 rounded-2xl w-7 h-7 flex justify-center items-center text-white cursor-pointer shadow leading-7;
         }
       }
     }

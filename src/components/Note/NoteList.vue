@@ -16,6 +16,7 @@
   import useNotes from '@/hooks/useNotes';
   import { toRef, computed, watch } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
+  import emmiter from '@/lib/eventBus';
 
   const props = defineProps<{
     sid: string;
@@ -24,9 +25,20 @@
   const router = useRouter();
   const route = useRoute();
 
-  const { noteList } = useNotes(toRef(props, 'sid'));
+  const { noteList, refresh } = useNotes(toRef(props, 'sid'));
 
-  // 默认跳转到第一条
+  emmiter.on('note:refresh', () => {
+    refresh();
+    router.push({
+      name: 'NoteDetail',
+      params: {
+        sid: props.sid,
+        nid: noteList.value[0].nid,
+      },
+    });
+  });
+
+  // 默认显示第一条内容
   watch(
     () => noteList.value.length,
     () => {

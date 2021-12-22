@@ -1,7 +1,9 @@
 <template>
   <div class="header">
     <p class="text-xl">{{ noteDetail?.title }}</p>
-    <el-button type="primary" size="mini" :icon="Plus" @click="onNew">新建笔记</el-button>
+    <div class="btns">
+      <el-button type="danger" size="mini" :icon="Delete" @click="deleteNote">删除</el-button>
+    </div>
   </div>
   <div class="content">
     <el-skeleton :loading="loading" class="p-4" :rows="6" animated :throttle="500">
@@ -13,23 +15,13 @@
 <script setup lang="ts">
   import useNoteDetail from '@/hooks/useNoteDetail';
   import { ref, onMounted, watch, computed } from 'vue';
-  import { useRoute, useRouter } from 'vue-router';
-  import { Plus } from '@element-plus/icons-vue';
+  import { useRoute } from 'vue-router';
+  import { Delete } from '@element-plus/icons-vue';
 
-  const router = useRouter();
   const route = useRoute();
 
-  const onNew = () => {
-    router.push({
-      name: 'NoteNew',
-      params: {
-        sid: route.params.sid,
-      },
-    });
-  };
-
   const nid = ref('');
-  const { noteDetail, loading } = useNoteDetail(nid);
+  const { noteDetail, loading, deleteNote } = useNoteDetail(nid);
 
   onMounted(() => {
     nid.value = route.params.nid as string;
