@@ -33,7 +33,7 @@
       if (val.length) {
         activeIndex.value = val[0].nid;
         router.push({
-          name: 'Note',
+          name: 'NoteDetail',
           params: {
             sid: props.sid,
             nid: val[0].nid,
@@ -46,7 +46,7 @@
   const onClick = (nid: string) => {
     activeIndex.value = nid;
     router.push({
-      name: 'Note',
+      name: 'NoteDetail',
       params: {
         sid: props.sid,
         nid: nid,

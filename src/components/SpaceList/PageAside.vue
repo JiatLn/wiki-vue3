@@ -5,7 +5,7 @@
         <el-icon><Notebook /></el-icon>
         <span>知识库</span>
       </el-menu-item>
-      <el-menu-item index="2">
+      <el-menu-item index="2" disabled>
         <el-icon><Share /></el-icon>
         <span>与我共享</span>
       </el-menu-item>

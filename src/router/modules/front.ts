@@ -20,9 +20,9 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/pages/Front/SpaceDetail.vue'),
         children: [
           {
-            name: 'Note',
+            name: 'NoteDetail',
             path: '/space/:sid/note/:nid',
-            component: () => import('@/pages/Front/Note.vue'),
+            component: () => import('@/pages/Front/NoteDetail.vue'),
           },
         ],
       },

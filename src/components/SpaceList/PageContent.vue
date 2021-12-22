@@ -1,5 +1,5 @@
 <template>
-  <section class="content">
+  <section class="page-content">
     <el-skeleton :loading="loading" class="p-4" :rows="6" animated :throttle="500">
       <el-table :data="spaceList" class="w-full">
         <el-table-column prop="name" label="知识库" minWidth="200px">
@@ -50,7 +50,7 @@
 </script>
 
 <style scoped lang="scss">
-  .content {
+  .page-content {
     @apply flex-1 overflow-x-auto;
     background-color: #fff;
   }

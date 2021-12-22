@@ -6,7 +6,7 @@
           <Notebook @click="router.push({ name: 'SpaceList' })" />
         </el-icon>
         <el-icon><ArrowRight class="text-gray-400" /></el-icon>
-        <span>{{ spaceDetail?.name }}</span>
+        <span class="text-gray-500">{{ spaceDetail?.name }}</span>
       </div>
       <el-tabs type="card" @tab-click="handleClick">
         <el-tab-pane label="笔记">
@@ -24,18 +24,19 @@
 <script setup lang="ts">
   import useSpaceDetail from '@/hooks/useSpaceDetail';
   import { onMounted, ref } from 'vue';
-  import { useRouter } from 'vue-router';
+  import { useRoute, useRouter } from 'vue-router';
   import { Notebook, ArrowRight } from '@element-plus/icons-vue';
   import NoteList from '@/components/Note/NoteList.vue';
 
   const router = useRouter();
+  const route = useRoute();
 
   const sid = ref('');
 
   const { spaceDetail } = useSpaceDetail(sid);
 
   onMounted(() => {
-    sid.value = router.currentRoute.value.params.sid as string;
+    sid.value = route.params.sid as string;
   });
 
   const handleClick = () => {};

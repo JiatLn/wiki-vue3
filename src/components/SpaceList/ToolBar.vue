@@ -1,6 +1,6 @@
 <template>
   <div class="tool-bar">
-    <span>知识库</span>
+    <span class="text-gray-500">知识库</span>
     <AddSpace></AddSpace>
   </div>
 </template>

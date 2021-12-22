@@ -3,14 +3,14 @@
     <ToolBar></ToolBar>
     <div class="main">
       <PageAside></PageAside>
-      <Content></Content>
+      <PageContent></PageContent>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
   import PageAside from '@/components/SpaceList/PageAside.vue';
-  import Content from '@/components/SpaceList/Content.vue';
+  import PageContent from '@/components/SpaceList/PageContent.vue';
   import ToolBar from '@/components/SpaceList/ToolBar.vue';
 </script>
 

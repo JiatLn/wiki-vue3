@@ -16,7 +16,7 @@ const useNotes = (space: Ref<string>) => {
     });
     loading.value = false;
     if (code === OK_CODE) {
-      noteList.value = data.rows;
+      noteList.value = data.rows.filter((item) => item.isPublished === true);
       total.value = data.total;
     }
   };
