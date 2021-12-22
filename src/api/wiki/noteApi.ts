@@ -14,7 +14,7 @@ export interface INoteData {
 }
 
 export const addNoteApi = (data: Partial<INoteData>) => {
-  return useHttp<BasicResp<null>>({
+  return useHttp<BasicResp<Partial<INoteData>>>({
     url: '/note',
     method: 'POST',
     data: {

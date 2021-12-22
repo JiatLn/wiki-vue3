@@ -49,6 +49,9 @@
     .space-detail__left {
       @apply w-72;
       border-right: 1px solid #eee;
+      :deep(.el-tabs__header.is-top) {
+        margin-bottom: 0;
+      }
       .left-top {
         @apply flex items-center h-12 px-2 space-x-2;
         .home-btn {

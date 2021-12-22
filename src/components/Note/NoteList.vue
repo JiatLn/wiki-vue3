@@ -14,37 +14,39 @@
 
 <script setup lang="ts">
   import useNotes from '@/hooks/useNotes';
-  import { ref, watch, toRef } from 'vue';
-  import { useRouter } from 'vue-router';
+  import { toRef, computed, watch } from 'vue';
+  import { useRoute, useRouter } from 'vue-router';
 
   const props = defineProps<{
     sid: string;
   }>();
 
-  const activeIndex = ref('');
-
   const router = useRouter();
+  const route = useRoute();
 
   const { noteList } = useNotes(toRef(props, 'sid'));
 
+  // 默认跳转到第一条
   watch(
-    () => noteList.value,
-    (val) => {
-      if (val.length) {
-        activeIndex.value = val[0].nid;
+    () => noteList.value.length,
+    () => {
+      if (!route.params.nid && noteList.value.length) {
         router.push({
           name: 'NoteDetail',
           params: {
             sid: props.sid,
-            nid: val[0].nid,
+            nid: noteList.value[0].nid,
           },
         });
       }
     }
   );
 
+  const activeIndex = computed(() => {
+    return route.params.nid || noteList.value[0].nid;
+  });
+
   const onClick = (nid: string) => {
-    activeIndex.value = nid;
     router.push({
       name: 'NoteDetail',
       params: {
@@ -56,11 +58,14 @@
 </script>
 
 <style scoped lang="scss">
+  @import '../../assets/styles/mixin';
   .note-list {
     @apply flex flex-col;
+    height: calc(100vh - 42px - 48px - 56px);
+    @include scroll($hide: #ddd);
     .note-item {
       border-bottom: 1px solid #eee;
-      @apply h-10 flex items-center pl-4 cursor-pointer hover:text-white hover:bg-red-400;
+      @apply h-10 leading-10  flex items-center pl-4 cursor-pointer hover:text-white hover:bg-red-400;
       &.active {
         @apply text-white bg-red-400;
       }
