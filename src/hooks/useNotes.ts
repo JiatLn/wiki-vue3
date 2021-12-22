@@ -1,6 +1,8 @@
-import { getNoteListApi, INoteData } from '@/api/wiki/noteApi';
+import type { INoteData } from '@/api/wiki/noteApi';
+import { getNoteListApi } from '@/api/wiki/noteApi';
 import { OK_CODE } from '@/app/keys';
-import { Ref, ref, watch } from 'vue';
+import type { Ref } from 'vue';
+import { ref, watch } from 'vue';
 
 const useNotes = (space: Ref<string>) => {
   const noteList = ref<INoteData[]>([]);

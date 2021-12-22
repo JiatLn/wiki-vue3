@@ -1,4 +1,4 @@
-import { BasicResp, LoginResp } from '@/api/types';
+import type { BasicResp, LoginResp } from '@/api/types';
 import useHttp from '@/api/useHttp';
 
 export interface LoginData {

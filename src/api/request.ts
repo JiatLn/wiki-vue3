@@ -1,6 +1,6 @@
 import { NO_PERMISSION, OK_CODE } from '@/app/keys';
 import router from '@/router';
-import { UserInfo } from '@/store/modules/useUserStore';
+import type { UserInfo } from '@/store/modules/useUserStore';
 import axios from 'axios';
 
 const requests = axios.create({

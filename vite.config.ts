@@ -10,7 +10,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import * as path from 'path';
 
 // https://vitejs.dev/config/
-export default ({ mode }) =>
+export default () =>
   defineConfig({
     resolve: {
       alias: {

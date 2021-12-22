@@ -1,5 +1,5 @@
 import useHttp from '@/api/useHttp';
-import { BasicResp, DataResp } from '@/api/types';
+import type { BasicResp, DataResp } from '@/api/types';
 
 export interface INoteData {
   nid: string;

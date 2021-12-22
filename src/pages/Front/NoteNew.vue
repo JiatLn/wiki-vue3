@@ -5,8 +5,8 @@
     </div>
     <div class="header__right inline-flex">
       <el-button type="success" size="mini">保存</el-button>
-      <el-button type="primary" @click="onPublish" size="mini">发布</el-button>
-      <el-button type="text" @click="onClose" :icon="Close"></el-button>
+      <el-button type="primary" size="mini" @click="onPublish">发布</el-button>
+      <el-button type="text" :icon="Close" @click="onClose"></el-button>
     </div>
   </div>
   <div class="content">
@@ -15,7 +15,8 @@
 </template>
 
 <script setup lang="ts">
-  import { addNoteApi, INoteData } from '@/api/wiki/noteApi';
+  import type { INoteData } from '@/api/wiki/noteApi';
+  import { addNoteApi } from '@/api/wiki/noteApi';
   import { OK_CODE } from '@/app/keys';
   import { ElMessage } from 'element-plus';
   import { reactive } from 'vue';

@@ -1,5 +1,7 @@
-import { getNoteByIdApi, INoteData } from '@/api/wiki/noteApi';
-import { Ref, ref, watch } from 'vue';
+import type { INoteData } from '@/api/wiki/noteApi';
+import { getNoteByIdApi } from '@/api/wiki/noteApi';
+import type { Ref } from 'vue';
+import { ref, watch } from 'vue';
 import { OK_CODE } from '@/app/keys';
 
 const useNoteDetail = (nid: Ref<string>) => {

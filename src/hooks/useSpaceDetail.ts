@@ -1,5 +1,7 @@
-import { Ref, ref, watch } from 'vue';
-import { getSpaceByIdApi, ISpaceData } from '@/api/wiki/spaceApi';
+import type { Ref } from 'vue';
+import { ref, watch } from 'vue';
+import type { ISpaceData } from '@/api/wiki/spaceApi';
+import { getSpaceByIdApi } from '@/api/wiki/spaceApi';
 import { OK_CODE } from '@/app/keys';
 
 const useSpaceDetail = (sid: Ref<string>) => {

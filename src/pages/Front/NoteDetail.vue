@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <p class="text-xl">{{ noteDetail?.title }}</p>
-    <el-button type="primary" size="mini" @click="onNew" :icon="Plus">新建笔记</el-button>
+    <el-button type="primary" size="mini" :icon="Plus" @click="onNew">新建笔记</el-button>
   </div>
   <div class="content">
     <el-skeleton :loading="loading" class="p-4" :rows="6" animated :throttle="500">

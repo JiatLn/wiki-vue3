@@ -1,4 +1,4 @@
-import { BasicResp, DataResp } from '@/api/types';
+import type { BasicResp, DataResp } from '@/api/types';
 import useHttp from '@/api/useHttp';
 
 export interface ISpaceData {

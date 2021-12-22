@@ -1,4 +1,5 @@
-import { getSpaceListApi, ISpaceData } from '@/api/wiki/spaceApi';
+import type { ISpaceData } from '@/api/wiki/spaceApi';
+import { getSpaceListApi } from '@/api/wiki/spaceApi';
 import { OK_CODE } from '@/app/keys';
 import { ref } from 'vue';
 

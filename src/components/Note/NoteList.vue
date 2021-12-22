@@ -1,10 +1,10 @@
 <template>
   <ul class="note-list">
     <li
-      class="note-item"
-      :class="{ active: item.nid === activeIndex }"
       v-for="(item, i) in noteList"
       :key="i"
+      class="note-item"
+      :class="{ active: item.nid === activeIndex }"
       @click="onClick(item.nid)"
     >
       {{ item.title }}
